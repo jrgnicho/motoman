@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:macro name="motoman_mh50ii20" params="prefix">
+    <!-- Properties -->
+    <material name="yaskawa_blue">
+        <color rgba="0.12941 0.14902 0.74902 1" />
+    </material>
 
-        <!-- Properties -->
-        <material name="yaskawa_blue">
-            <color rgba="0.12941 0.14902 0.74902 1" />
-        </material>
+    <xacro:macro name="motoman_mh50ii20" params="prefix">
 
         <!-- link list -->
         <link name="${prefix}base_link">
