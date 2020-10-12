@@ -1,6 +1,14 @@
-
 <launch>
-	<include file="$(find motoman_mh50_support)/launch/load_mh50.launch" />
+	<arg name="use_ii20" default="false"/>
+
+	<group if="$(arg use_ii20)">
+		<include file="$(find motoman_mh50_support)/launch/load_mh50ii20.launch" />
+	</group>
+
+	<group unless="$(arg use_ii20)">
+		<include file="$(find motoman_mh50_support)/launch/load_mh50.launch" />
+	</group>
+
 	<param name="use_gui" value="true" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
